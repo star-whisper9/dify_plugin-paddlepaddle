@@ -1,0 +1,30 @@
+version: 0.0.1
+type: plugin
+author: star-whisper9
+name: paddlepaddle-doc-ocr
+label:
+  en_US: Paddle OCR for Documents
+  zh_Hans: Paddle OCR 文档识别
+description:
+  en_US: "Dify Document OCR plugin, integrates with Paddle OCR backend, supports OCR for images and PDFs via private deployment service"
+  zh_Hans: "Dify 文档 OCR 插件，对接 Paddle OCR 后端，支持通过私有部署服务进行图像和 PDF 的 OCR"
+icon: icon.ico
+resource:
+  memory: 268435456
+  permission: {}
+plugins:
+  tools:
+    - provider/paddlepaddle-doc-ocr.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: 1.6.0
+created_at: 2025-07-17T09:40:55.974165+08:00
+privacy: PRIVACY.md
+verified: false

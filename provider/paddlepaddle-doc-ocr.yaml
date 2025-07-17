@@ -1,0 +1,34 @@
+identity:
+  author: "star-whisper9"
+  name: "paddlepaddle-doc-ocr"
+  label:
+    en_US: Paddle OCR for Documents
+    zh_Hans: Paddle OCR 文档识别
+  description:
+    en_US: "Dify Document OCR plugin, integrates with Paddle OCR backend, supports OCR for images and PDFs via private deployment service"
+    zh_Hans: "Dify 文档 OCR 插件，对接 Paddle OCR 后端，支持通过私有部署服务进行图像和 PDF 的 OCR"
+  icon: icon.ico
+tools:
+  - tools/doc-ocr.yaml
+credentials_for_provider:
+  ocr_url:
+    type: text-input
+    required: true
+    label:
+      zh_Hans: Paddle OCR API 地址
+      en_US: Paddle OCR API URL
+    placeholder:
+      zh_Hans: "https://your-paddle-ocr-api.com/layout-parsing"
+      en_US: "https://your-paddle-ocr-api.com/layout-parsing"
+  base_url:
+    type: text-input
+    required: true
+    label:
+      zh_Hans: Dify 的地址
+      en_US: Dify base URL
+    placeholder:
+      zh_Hans: "https://your-dify-base.com"
+      en_US: "https://your-dify-base.com"
+extra:
+  python:
+    source: provider/paddlepaddle-doc-ocr.py

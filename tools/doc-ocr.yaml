@@ -1,0 +1,60 @@
+identity:
+  name: "doc-ocr"
+  author: "star-whisper9"
+  label:
+    en_US: Document OCR
+    zh_Hans: 文档识别
+description:
+  human:
+    en_US: "Use Paddle OCR to read documents"
+    zh_Hans: "使用 Paddle OCR 读取文档"
+  llm: "使用 Paddle OCR 将图像/PDF 文档转换为 Markdown 文本"
+parameters:
+  - name: p_file
+    type: files
+    required: true
+    label:
+      en_US: File to OCR
+      zh_Hans: 要识别的文件
+    human_description:
+      en_US: "Upload an image or PDF file for OCR processing"
+      zh_Hans: "上传要进行 OCR 处理的图像或 PDF 文件"
+    llm_description: "上传要进行 OCR 处理的图像或 PDF 文件"
+    form: llm
+  - name: p_segmentation
+    type: number
+    required: false
+    min: 1
+    max: 100
+    label:
+      zh_Hans: PDF文件的分页数
+      en_US: PDF file segmentation
+    human_description:
+      zh_Hans: "如果上传的是 PDF 文件，指定处理时的分页数（根据后端配置调整）"
+      en_US: "If a PDF file is uploaded, specify the number of pages to process (adjust based on backend configuration)"
+    llm_description: "如果上传的是 PDF 文件，指定处理时的分页数（根据后端配置调整）"
+    form: llm
+  - name: return_type
+    type: select
+    required: false
+    default: "文本"
+    options:
+      - label:
+          zh_Hans: "文本"
+          en_US: "Text"
+        value: "text"
+      - label:
+          zh_Hans: "文件"
+          en_US: "File"
+        value: "file"
+    label:
+      zh_Hans: 返回类型
+      en_US: Return Type
+    human_description:
+      zh_Hans: "选择 OCR 结果的返回类型"
+      en_US: "Select the return type for the OCR result"
+    llm_description: "选择 OCR 结果的返回类型，文本格式或可下载的文件格式"
+    form: llm
+extra:
+  python:
+    source: tools/doc-ocr.py
