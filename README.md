@@ -2,7 +2,7 @@
 
 **Author:** star-whisper9
 
-**Version:** 0.0.1
+**Version:** 0.0.2
 
 **Type:** tool
 
@@ -16,7 +16,7 @@ Paddlepaddle support for Dify.
 
 **作者:** star-whisper9
 
-**版本:** 0.0.1
+**版本:** 0.0.2
 
 **类型:** 工具
 

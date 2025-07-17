@@ -37,7 +37,7 @@ parameters:
   - name: return_type
     type: select
     required: false
-    default: "文本"
+    default: "file"
     options:
       - label:
           zh_Hans: "文本"
