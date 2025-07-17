@@ -44,9 +44,10 @@ class PaddlepaddleDocOcrTool(Tool):
             final_result = ""
             for i in sorted(results.keys()):
                 final_result += results[i] + "\n\n"
+            final_result = mdformat.text(final_result.strip())
         
         return_res = self.create_json_message({
-            "result": final_result.strip()
+            "result": final_result
         }) if return_type == "text" else self.create_blob_message(
             blob=final_result.encode('utf-8'),
             meta={
@@ -64,9 +65,9 @@ class PaddlepaddleDocOcrTool(Tool):
         
         parsed = ""
         if (extension == ".pdf"): 
-            parsed = mdformat.text(self._process_pdf(file_obj, segmentation))
+            parsed = self._process_pdf(file_obj, segmentation)
         elif (extension in [".jpg", ".jpeg", ".png", ".bmp"]):
-            parsed = mdformat.text(self._process_image(file_obj))
+            parsed = self._process_image(file_obj)
         else:
             raise ValueError(f"Unsupported file type: {extension}")
         
